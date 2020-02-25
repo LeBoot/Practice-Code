@@ -1,33 +1,24 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-
+/*myStuff*/
 function submitFile() {
-    console.log("File url: " + $("#fileInput").val());
+  
+  var myForm = document.getElementById("myForm");
 
-    var addFileForm = document.getElementById("addFileForm");
+  $.ajax({
+    type: 'POST',
+    url: '/add-file',
+    data: new FormData(myForm),
+    contentType: false,
+    processData: false,
+    cache: false,
+    success: function(data, status) {
+      console.log("Success: " + status);
+    },
+    error: function(xhr, status, error) {
+      var err = eval("(" + xhr.responseText + ")");
+      console.log("Error: " + err.message);
+    }
 
-    // var formToSend = new FormData($("#addFileForm")[0]);
-
-    $.ajax({
-        type: "POST",
-        url: "/add-file",
-        data: new FormData(addFileForm),
-        enctype: "multipart/form-data",
-        processData: false,
-        contentData: false,
-        cache: false,
-        success: function(data, status) {
-            alert("Success!");
-        },
-        error: function(xhr, status, error) {
-            var err = eval("(" + xhr.responseText + ")");
-            alert("Error: " + err.message);
-        }
-    });
+  });
 
 }
 

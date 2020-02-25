@@ -16,7 +16,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -35,16 +34,16 @@ public class MainController {
     @ResponseBody
     @PostMapping("/add-file")
     public ResponseEntity addFile(
-            @RequestPart("nameInput") String myName,
-            @RequestPart("fileInput") MultipartFile mp3File
+            @RequestParam("fileInput") MultipartFile mp3File,
+            @RequestParam("nameOfFile") String nameOfFile
     ) {
-        //String mp3url = "/mp3/" + mp3File.getOriginalFilename();
+        String mp3url = "/mp3/" + mp3File.getOriginalFilename();
         
         //try to save file locally
         try {
             //Get filename and build a local filepath
             String filename = mp3File.getOriginalFilename();
-            String directory = "C:\\Users\\Boone\\Desktop\\SoftwareGuild\\Dev10-Coursework\\FileUploader\\src\\main\\resources\\static\\mp3";
+            String directory = "C:\\Repos\\Practice-Code\\FileUploader\\src\\main\\resources\\static\\mp3";
             String filepath = Paths.get(directory, filename).toString();
             
             //Save file locally
@@ -54,6 +53,18 @@ public class MainController {
         } catch (IOException e) {
             return new ResponseEntity(e, HttpStatus.BAD_REQUEST);
         }
+        
+//        String sellerUsername = SecurityUtils.getUserName();
+//        User user = userService.findByUsername(sellerUsername);
+//        int serverUserId = user.getUserId();
+//        Seller seller = sellerService.findByUserId(serverUserId);
+//        seller.getUser().setAcctStatus(4);
+//        seller.setPublicName(publicName);
+//        seller.setPublicCompany(publicCompany);
+//        seller.setPublicIntroduction(publicIntroduction);
+//        seller.setPhotoUrl(photoUrl);
+//        sellerService.save(seller);
+        
         
         return new ResponseEntity("New File Created Successfully", HttpStatus.CREATED);
         
