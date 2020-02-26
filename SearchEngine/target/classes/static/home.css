@@ -1,0 +1,31 @@
+body {
+    margin: 0px 20px;
+    background-color: antiquewhite;
+}
+ hr {
+     border: solid black 1px;
+ }
+
+ input {
+     width: 300px;
+ }
+
+ .hiddenDiv {
+     display: none;
+ }
+
+ .successfulEvent {
+     background-color: palegreen;
+     border: solid green 1px;
+     border-radius: 4px;
+     padding: 10px;
+     margin: 10px 0px;
+ }
+
+ .errorEvent {
+    background-color: salmon;
+    border: solid red 1px;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 10px 0px;
+}
