@@ -1,7 +1,6 @@
 //VARIABLES ======================================================
 var listToQuery;
 
-
 //Document Ready =================================================
 $(document).ready(function () {
     
@@ -17,14 +16,12 @@ function makeAJAXCallForList() {
         type: "GET",
         url: "http://localhost:8080/get-list",
         success: function(incomingList) {
-            console.log("Successful AJAX call.")
-
             //Set listToQuery, which is used when a submission occurs
             listToQuery = incomingList;
             
             //initiate the autocomplete function
-            var x = $("#search-bar");
-            autocomplete(x, incomingList);
+            var inputField = document.getElementById("search-bar");
+            autocomplete(inputField, incomingList);
         },
         error: function(xhr, status, error) {
             var err = eval("(" + xhr.responseText + ")");
@@ -80,64 +77,94 @@ function attemptFormSubmission() {
 }
 
 //AUTOCOMPLETE ========================================================
-function autocomplete(userInput, myList) {
+function autocomplete(inputField, myList) { //============================================================
     var currentFocus;
+    var readyToSubmit;
 
     //If the user click anywhere on the page other than an autocomplete value...
     document.addEventListener("click", function (e) {
         closeAllLists(e.target);
-    }); //END EVENT LISTENER
+    }); //END EVENT LISTENER --------------------------------------------------
 
     function closeAllLists(element) {
         var x = $(".autocomplete-items");
         for (var i = 0; i < x.length; i++) {
-            if ((element != x[i]) && (element != userInput)) {
+            if ((element != x[i]) && (element != inputField)) {
                 x[i].parentNode.removeChild(x[i]);
             }
         }
-    } //END CLOSE ALL LISTS
+    } //END CLOSE ALL LISTS -------------------------------------------------------------------------
+
 
     //Event listener.  Each time the 'input' field is altered, this funciton runs
-    userInput.addEventListener("input", function(e) {
+    inputField.addEventListener("input", function(e) {              
         //grab what the user has typed thus far
         var val = this.value;
         
         //Close any already-open lists of autocomplte values
         closeAllLists();
+
+        //decide wheather or not to add the list
+        var shouldAddList = false;
         
-        /*
-        Figure this piece out
-        */
-        if (val == false) {
+        // if value is null, break out of function
+        if (!val) {
             return false;
         }
+
+        //set the current focus above any divs (this is used for highlighting)
         currentFocus = -1;
 
         //Create a DIV to hold autocomplete list
         var autocompleteList = document.createElement("DIV");
-        autocompleteList.setAttribute("id", this.id + "autocomplete-list");
+        autocompleteList.setAttribute("id", "autocomplete-list");
         autocompleteList.setAttribute("class", "autocomplete-items");
+        autocompleteList.classList.add("hiddenDiv");
         //append to input field
         this.parentNode.appendChild(autocompleteList);
 
         //for each item in the list to query...
         for (var i = 0; i < myList.length; i++) {
-            if (myList[i].toUpperCase().includes(val.toUpperCase())) {
+            var indexOfSubstring = myList[i].toUpperCase().indexOf(val.toUpperCase());
+            if (indexOfSubstring != -1) {
+                //yes, let's add a list
+                shouldAddList = true;
+                
                 //Create a DIV
                 var partialMatchDiv = document.createElement("DIV");
                 
-                /*
-                Some Code to make Matching Letters Bold would be Nice
-                */
+                //Make matching letters bold --------------------------
+                var part1, part2, part3;
+                var lengthOfVal = val.length;
+                //part before match, if present
+                if (indexOfSubstring > 0) {
+                    part1 = myList[i].substring(0, indexOfSubstring);
+                } else {
+                    part1 = "";
+                }
+                //matching part
+                part2 = myList[i].substring(indexOfSubstring, indexOfSubstring + lengthOfVal);
+                //part after match, if present
+                if ((indexOfSubstring + lengthOfVal) < myList[i].length) {
+                    part3 = myList[i].substring(indexOfSubstring + lengthOfVal);
+                } else {
+                    part3 = "";
+                }
+                //create a new string, with the three parts
+                var newString = part1;
+                newString += "<b>" + part2 + "</b>";
+                newString += part3;
 
                 //put content into DIV
-                partialMatchDiv.innerHTML = myList[i];
+                partialMatchDiv.innerHTML = newString;
+                //partialMatchDiv.innerHTML = myList[i];
+                partialMatchDiv.innerHTML += "<input type='hidden' value='" + myList[i] + "'>";
 
                 //If this div is clicked, execute the folling code:
                 partialMatchDiv.addEventListener("click", function(e) {
                     //change value of search-bar to value of this div
                         //choosing not to submit here, so that the user can type additional stuff if desired
-                    $("#search-bar").val(myList[i]);
+                    inputField.value = this.getElementsByTagName("input")[0].value;
 
                     //close all lists
                     closeAllLists();
@@ -145,29 +172,111 @@ function autocomplete(userInput, myList) {
 
                 //add DIV to list
                 autocompleteList.appendChild(partialMatchDiv);
+
             } //END IF STATEMENT
 
         } //END FOR LOOP
-    }); //END EVENT LISTENER FUNCTION
 
-    // function addActive(x) {
-    //   /*a function to classify an item as "active":*/
-    //   if (!x) return false;
-    //   /*start by removing the "active" class on all items:*/
-    //   removeActive(x);
-    //   if (currentFocus >= x.length) currentFocus = 0;
-    //   if (currentFocus < 0) currentFocus = (x.length - 1);
-    //   /*add class "autocomplete-active":*/
-    //   x[currentFocus].classList.add("autocomplete-active");
-    // }
+        //dispaly list, if anything was found
+        if (shouldAddList == true) {
+            autocompleteList.classList.remove("hiddenDiv");
+        }
 
-    // function removeActive(x) {
-    //   /*a function to remove the "active" class from all autocomplete items:*/
-    //   for (var i = 0; i < x.length; i++) {
-    //     x[i].classList.remove("autocomplete-active");
-    //   }
-    // }
+    }); //END EVENT LISTENER FUNCTION ----------------------------------------------------------------------
 
-    
 
-} //CLOSE AUTOCOMPLETE FUNCTION
+    //Event listener for keydown, keyup, enter
+    inputField.addEventListener("keydown", function(e) {
+        //select the exact div
+        var selected = document.getElementById("autocomplete-list");
+        
+        //if "selected" is not null
+        if (selected) {
+            selected = selected.getElementsByTagName("DIV");
+        }
+
+        //arrow down key
+        if (e.keyCode == 40) {
+            //increase current focus
+            currentFocus++;
+
+            //highlight div
+            addActive(selected);
+        }
+
+        //arrow up key
+        else if (e.keyCode == 38) {
+            //decrease current focus
+            currentFocus--;
+
+            //make the new element highlighted
+            addActive(selected);
+        }
+
+        //enter key
+        else if (e.keyCode == 13) {            
+            if (readyToSubmit == false) {
+                //prevent form submission
+                e.preventDefault();
+
+                //run submission function
+                if (selected[currentFocus] == 10) {
+                    console.log("this");
+                }
+
+                //run the same function used when div is clicked
+                else if (currentFocus > -1) {
+                    selected[currentFocus].click();
+                }
+
+                //ensure that the next "enter" keystroke can submit the form
+                readyToSubmit = true;
+            }
+            else {
+                closeAllLists();
+                attemptFormSubmission();
+            } 
+        }
+
+        console.log("End of function: currentFocus: " + currentFocus);
+        console.log("End of function: selected[currentFocus]: " + selected[currentFocus]);
+
+    }); //END KEYUP, KEYDOWN, ENTER ------------------------------------------------------------------
+
+
+    //Highlight the div in which the user is interested
+    function addActive(myDiv) {
+        if (myDiv == false) {
+            return false;
+        }
+
+        //remove the active class from all items
+        removeActive(myDiv);
+
+        //if focus is greater than the length of all the divs, return to first div
+        if (currentFocus >= myDiv.length) {
+            currentFocus = 0;
+        }
+
+        //if focus is less than the length of all the divs, return to the greatest div
+        if (currentFocus < 0) {
+            currentFocus = (myDiv.length - 1);
+        }
+
+        //make the current focus div highlighted
+        myDiv[currentFocus].classList.add("autocomplete-active");
+
+        //indicate the the next "enter" keystroke will not submit the form, but will select the active value
+        readyToSubmit = false;
+
+    } //END ADD ACTIVE ---------------------------------------------------------------------------
+
+
+    //Remove highlight for all divs
+    function removeActive(myDiv) {
+        for (var i = 0; i < myDiv.length; i++) {
+            myDiv[i].classList.remove("autocomplete-active");
+        }
+    } //END REMOVE ACTIVE ---------------------------------------------------------------------
+
+} //END  AUTOCOMPLETE FUNCTION =============================================================================
