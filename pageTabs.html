@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Page Tabs</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <style>
+            html {
+                height: 100%;
+                width: 100%;
+                margin: 0px
+            }
+
+            body {
+                margin: 0;
+                width: 100%;
+                height: 85%;
+            }
+
+            header {
+                padding: 50px;
+                text-align: center;
+                font-size: 30px;
+            }
+
+            #tab-button-div-full-page {
+                width: 100%;
+                margin: 0;
+            }
+
+            #tab-button-div {
+                width: 500px;
+                height: 40px;
+                margin: 0 auto;
+            }
+
+            header,
+            #tab-button-div-full-page,
+            #tab-button-div {
+                background-color: wheat;
+            }
+
+            button {
+                border: none;
+                outline: none;
+                cursor: pointer;
+
+                background-color: #555;
+                color: white;
+                width: 25%;
+                height: 100%;
+                float: left;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+            }
+
+            button:hover {
+                background-color: #777;
+            }
+            
+            .inactive-tab-content {
+                display: none;
+            }
+
+            section,
+            .active-tab-content {
+                display: block;
+                float: left;
+                height: 100%;
+                width: 100%;
+            }
+
+            #page1 {background-color: olivedrab;}
+            #page2 {background-color: peru;}
+            #page3 {background-color: rosybrown;}
+            #page4 {background-color:cadetblue;}
+
+        </style>
+    </head>
+    <body>
+        <header>
+            My Header
+        </header>
+        
+        <div id="tab-button-div-full-page">
+            <div id="tab-button-div">
+                <button class="tab-button" onClick="displayTabContent('page1', this, 'olivedrab')" id="defaultOpen">Page 1</button>
+                <button class="tab-button" onClick="displayTabContent('page2', this, 'peru')">Page 2</button>
+                <button class="tab-button" onClick="displayTabContent('page3', this, 'rosybrown')">Page 3</button>
+                <button class="tab-button" onClick="displayTabContent('page4', this, 'cadetblue')">Page 4</button>
+            </div>
+        </div>
+        
+        <section>
+            <div class="tab-content" id="page1">
+                <h2>This is page 1</h2>
+            </div>
+
+            <div class="tab-content" id="page2">
+                <h2>This is page 2</h2>
+            </div>
+
+            <div class="tab-content" id="page3">
+                <h2>This is page 3</h2>
+            </div>
+
+            <div class="tab-content" id="page4">
+                <h2>This is page 4</h2>
+            </div>
+        </section>
+        
+        <script>
+            document.getElementById("defaultOpen").click();
+            
+            function displayTabContent(tabName, element, color) {
+                var allTabContents = document.getElementsByClassName("tab-content");
+                for (var i = 0; i < allTabContents.length; i++) {
+                    allTabContents[i].classList.remove("active-tab-content");
+                    allTabContents[i].classList.add("inactive-tab-content");
+                }
+
+                var allTabButtons = document.getElementsByClassName("tab-button");
+                for (var i = 0; i < allTabButtons.length; i++) {
+                    allTabButtons[i].style.backgroundColor = "";
+                }
+                
+                element.classList.add("active-tab-button");
+                element.style.backgroundColor = color;
+
+                document.getElementById(tabName).classList.add("active-tab-content");
+            }
+        </script>
+    </body>
+</html>
