@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!--
+    Author: Ben Leboutilllier
+    Date created: 3 March 2020
+    Date updated:
+-->
+
+<html>
+    <head>
+        <!-- Meta for Bootstrap 4 -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            
+        <!-- Title for document -->
+        <title>Sidebar Practice</title>
+
+        <!-- Bootstrap CSS CDN -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+            
+        <style>
+            html {
+                height: 100%;
+            }
+            
+            header {
+                background-color: cadetblue;
+                padding: 50px;
+            }
+            
+            .wrapper {
+                display: flex;
+                width: 100%;
+                align-items: stretch;
+            }
+
+            #sidebar {
+                min-width: 250px;
+                max-width: 250px;
+                min-height: 90vh;
+                margin-left: -250px;
+
+                background-color: chartreuse;
+            }
+
+            #sidebar.active {
+                margin-left: 0px;
+            }
+
+            #page-content {
+                background-color: chocolate;
+                width: 100%;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            Welcome to Word Counter!
+        </header>
+        <div class="wrapper">
+
+            <!-- Sidebar -->
+            <nav id="sidebar">
+                <div id="sidebar-header">
+                    <h4>Sidebar Header</h4>
+                </div>
+                <div>
+                    <a>Link 1</a>
+                    <a>Link 2</a>
+                    <a>Link 3</a>
+                </div>
+            </nav> <!-- End Sidebar-->
+
+            <!-- Page Content -->
+            <div id="page-content">
+                <nav>
+                    <button id="toggle-sidebar" onClick="toggleSidebar()">Toggle Sidebar</button>
+                </nav>
+            </div> <!-- End Page Content-->
+
+        </div> <!-- End Wrapper-->
+
+        <script>
+            function toggleSidebar() {
+                $('#sidebar').toggleClass('active');
+            }
+        </script>
+
+        <!-- jQuery CDN - Slim version (=without AJAX) -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <!-- Popper.JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+        <!-- Bootstrap JS -->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+    </body>
+</html>
