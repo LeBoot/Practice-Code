@@ -69,11 +69,11 @@ function displayGraph(myList) {
             interval: 1
         },
         axisY:{
-            title: "Number of Occurances"
+//            logarithmic: true,
+            title: "Number of Occurances"  
         },
         data: [{
             type: "column",
-            name: "companies",
             color: "#014D65",
             dataPoints: configuredData
         }]
