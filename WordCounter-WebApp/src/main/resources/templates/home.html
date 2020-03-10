@@ -1,58 +1,157 @@
 <!DOCTYPE html>
-<!--
-    Author: Ben Leboutilllier
-    Date created: 2 March 2020
-    Date updated:
--->
-
-<html>
+<html lang="en">
     <head>
-        <!-- Meta for Bootstrap 4 -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-            
+        <meta name="description" content="Analysis of a text yields a visual representation of the frequency of the text's words.">
+        <meta name="keywords" content="keyword1; keyword2; keyword3"> <!-- THIS -->
+        
+        <meta name="author" content="Ben Leboot">
+        <meta name="date.created" content="2020-03-10">
+        <meta name="date.modified" content="2020-03-10"> <!-- THIS -->
+               
         <!-- Title for document -->
         <title>Home | Word Counter</title>
-            
-        <!-- External links -->
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-        
-        <!-- Chart.js-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
-        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-        <!-- My CSS -->
-        <link href="home.css" rel="stylesheet" type="text/css" />
-        <style></style>
-    </head>
 
+        <!-- External Links -->
+            <!-- Latest compiled and minified CSS -->
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+            <!-- jQuery library -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            <!-- Latest compiled JavaScript -->
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+ 
+        <!-- CSS, Custom, External -->
+        <link href="home.css" rel="stylesheet" type="text/css" /> <!-- THIS -->
+        
+        <!-- CSS, Custom, Internal -->
+        <style>            
+            body {
+                background-color: antiquewhite; /*THIS*/
+            }
+
+            header {
+                background-color: aquamarine; /*THIS*/
+                flex-direction: row;
+            }
+
+            .header-picture {
+                width: calc(100%/7);
+                border: solid purple 1px;
+                height: 120px;
+                float: left;
+            }
+
+            footer {
+                border: solid purple 1px;
+                text-align: center;
+                padding: 13px;
+                height: 70px;
+
+                /*Keep footer at bottom of page*/
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+            }
+
+            footer p {
+                margin: 0;
+            }
+
+            .section-main-body {
+                display: flex;
+                width: 100%;
+                align-items: stretch;
+            }
+
+            #sidebar {
+                min-width: 250px;
+                max-width: 250px;
+                height: calc(100vh - 190px);
+                margin-left: -250px;
+
+                background-color:brown;
+            }
+
+            #sidebar.active {
+                margin-left: 0px;
+            }
+
+            .hamburger-button {
+                margin: 10px;
+            }
+
+        </style>
+
+    </head> <!-- END HEAD ====================================================================================== -->
+    
     <body>
         <header>
-            Welcome to Word Counter!
-        </header>
-        <section>
-            <form id="form1" onSubmit="analyzetext()">
-                <div>
-                    <textarea placeholder="Text to analyze." id="form1-text-area" name="form1-text-area"></textarea>
+            <div class="header-picture"></div>
+            <div class="header-picture"></div>
+            <div class="header-picture"></div>
+            <div class="header-picture"></div>
+            <div class="header-picture"></div>
+            <div class="header-picture"></div>
+            <div class="header-picture"></div>
+        </header> <!-- END header ------------------------------------------------------------------------------ -->
+
+        <section class="section-main-body">
+
+            <!-- Sidebar -->
+            <nav id="sidebar">
+                <div id="sidebar-header">
+                    <h4>Sidebar Header</h4>
                 </div>
                 <div>
-                    <button type="submit" id="form1-button">Analyze</button>
+                    <a>Link 1</a>
+                    <a>Link 2</a>
+                    <a>Link 3</a>
                 </div>
-            </form>
-            
-            <div id="my-chart"></div>
+            </nav> <!-- End Sidebar ---------------------------------------------------------------------------- -->
+    
+            <!-- Page Content -->
+            <div id="page-content">
+                <nav>
+                    <button class="hamburger-button" onClick="toggleSidebar()">☰ Menu</button>
+                </nav>
+                <!-- <div> -->
+                    <form id="form1" onSubmit="analyzetext()">
+                        <div>
+                            <textarea placeholder="Text to analyze." id="form1-text-area" name="form1-text-area"></textarea>
+                        </div>
+                        <div>
+                            <button type="submit" id="form1-button">Analyze</button>
+                        </div>
+                    </form>
+                <!-- </div> -->
+                <div id="my-chart"></div>
+            </div> <!-- End Page Content ----------------------------------------------------------------------- -->
+    
+        </section> <!-- END Section-Main-Body ------------------------------------------------------------------ -->
 
+        <footer>
+            <p>Created by LeBoot Websites</p>
+            <p>Copyright © 2020</p>
+        </footer> <!-- END footer -->
 
-        </section>
+        <!-- JavaScript, Custom, Internal -->
+        <script>
+            function toggleSidebar() {
+                $('#sidebar').toggleClass('active');
+            }
+        </script>
 
-        <!-- JavaScript -->
+        <!-- JavaScript, Custom, External -->
         <script src="home.js"></script>
+        <script src="file.js" ></script> <!-- THIS -->
 
-        <!-- Full JQuery -->
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    </body>
+        <!-- External Scripts -->
+            <!-- Full JQuery (with AJAX) -->
+            <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+            <!-- Popper JS -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+            <!-- Bootstrap JS -->
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body> <!-- END BODY ====================================================================================== -->
 </html>

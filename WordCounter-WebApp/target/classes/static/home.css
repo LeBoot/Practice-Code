@@ -4,7 +4,7 @@ Date created: 2 March 2020
 Date updated:
 */
 
-body, html {
+/*body, html {
     height: 100%;
     background-color: rgb(216, 214, 214);
     margin: 0;
@@ -20,13 +20,14 @@ header {
 section {
     background-color: rgb(179, 219, 175);
     min-height: 88%;
-}
+}*/
 
 #form1 {
     width: 600px;
     margin: auto;
     padding: 40px 0px;
     text-align: center;
+    background-color: teal;
 }
 
 #form1-text-area {
