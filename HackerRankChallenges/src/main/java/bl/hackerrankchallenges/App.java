@@ -5,8 +5,6 @@
  */
 package bl.hackerrankchallenges;
 
-import bl.hackerrankchallenges.Warmup.JumpingOnTheClouds;
-
 
 /**
  *
@@ -14,11 +12,7 @@ import bl.hackerrankchallenges.Warmup.JumpingOnTheClouds;
  */
 public class App {
     
-    static JumpingOnTheClouds jump = new JumpingOnTheClouds();
-    
     public static void main(String[] args) {
-         int[] ar = {0, 1, 0, 0, 0, 1, 0};
-         int a = jump.runJumpingOnTheClouds(ar);
-        
-    }
+    }  
+    
 }
