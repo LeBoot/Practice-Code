@@ -1,0 +1,49 @@
+-------------------------------------------------------------------------------
+Test set: bl.hackerrankchallenges.hGreedy.GreedyFloristTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 5, Errors: 0, Skipped: 0, Time elapsed: 0.031 sec <<< FAILURE!
+bl.hackerrankchallenges.hGreedy.GreedyFloristTest.testRunGreedyFlorist4()  Time elapsed: 0.031 sec  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <11> but was: <24>
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:54)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:195)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:152)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:147)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:327)
+	at bl.hackerrankchallenges.hGreedy.GreedyFloristTest.testRunGreedyFlorist4(GreedyFloristTest.java:44)
+
+bl.hackerrankchallenges.hGreedy.GreedyFloristTest.testRunGreedyFlorist3()  Time elapsed: 0 sec  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <29> but was: <55>
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:54)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:195)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:152)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:147)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:327)
+	at bl.hackerrankchallenges.hGreedy.GreedyFloristTest.testRunGreedyFlorist3(GreedyFloristTest.java:37)
+
+bl.hackerrankchallenges.hGreedy.GreedyFloristTest.testRunGreedyFlorist5()  Time elapsed: 0 sec  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <10> but was: <24>
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:54)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:195)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:152)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:147)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:327)
+	at bl.hackerrankchallenges.hGreedy.GreedyFloristTest.testRunGreedyFlorist5(GreedyFloristTest.java:51)
+
+bl.hackerrankchallenges.hGreedy.GreedyFloristTest.testRunGreedyFlorist1()  Time elapsed: 0 sec  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <13> but was: <29>
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:54)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:195)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:152)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:147)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:327)
+	at bl.hackerrankchallenges.hGreedy.GreedyFloristTest.testRunGreedyFlorist1(GreedyFloristTest.java:23)
+
+bl.hackerrankchallenges.hGreedy.GreedyFloristTest.testRunGreedyFlorist2()  Time elapsed: 0 sec  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <15> but was: <29>
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:54)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:195)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:152)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:147)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:327)
+	at bl.hackerrankchallenges.hGreedy.GreedyFloristTest.testRunGreedyFlorist2(GreedyFloristTest.java:30)
+
