@@ -5,6 +5,8 @@
  */
 package bl.hackerrankchallenges;
 
+import bl.hackerrankchallenges.hStringManipulation.SpecialString;
+
 
 /**
  *
@@ -12,7 +14,13 @@ package bl.hackerrankchallenges;
  */
 public class App {
     
+    static SpecialString ss = new SpecialString();
+    
     public static void main(String[] args) {
+        String s1 = "abcd";
+        String s2 = "a";
+        ss.runSpecialString(s1, s2);
+        
     }  
     
 }
