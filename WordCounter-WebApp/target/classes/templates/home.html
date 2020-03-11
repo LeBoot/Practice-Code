@@ -4,11 +4,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="Analysis of a text yields a visual representation of the frequency of the text's words.">
-        <meta name="keywords" content="keyword1; keyword2; keyword3"> <!-- THIS -->
+        <meta name="keywords" content="chart.js; spinner; page-tabs; hamburger menu; pictures in header">
         
         <meta name="author" content="Ben Leboot">
         <meta name="date.created" content="2020-03-10">
-        <meta name="date.modified" content="2020-03-10"> <!-- THIS -->
+        <meta name="date.modified" content="2020-03-11">
                
         <!-- Title for document -->
         <title>Home | Word Counter</title>
@@ -22,66 +22,10 @@
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
  
         <!-- CSS, Custom, External -->
-        <link href="home.css" rel="stylesheet" type="text/css" /> <!-- THIS -->
+        <link href="home.css" rel="stylesheet" type="text/css" />
         
         <!-- CSS, Custom, Internal -->
-        <style>            
-            body {
-                background-color: antiquewhite; /*THIS*/
-            }
-
-            header {
-                background-color: aquamarine; /*THIS*/
-                flex-direction: row;
-            }
-
-            .header-picture {
-                width: calc(100%/7);
-                border: solid purple 1px;
-                height: 120px;
-                float: left;
-            }
-
-            footer {
-                border: solid purple 1px;
-                text-align: center;
-                padding: 13px;
-                height: 70px;
-
-                /*Keep footer at bottom of page*/
-                position: absolute;
-                bottom: 0;
-                width: 100%;
-            }
-
-            footer p {
-                margin: 0;
-            }
-
-            .section-main-body {
-                display: flex;
-                width: 100%;
-                align-items: stretch;
-            }
-
-            #sidebar {
-                min-width: 250px;
-                max-width: 250px;
-                height: calc(100vh - 190px);
-                margin-left: -250px;
-
-                background-color:brown;
-            }
-
-            #sidebar.active {
-                margin-left: 0px;
-            }
-
-            .hamburger-button {
-                margin: 10px;
-            }
-
-        </style>
+        <style></style>
 
     </head> <!-- END HEAD ====================================================================================== -->
     
@@ -115,16 +59,39 @@
                 <nav>
                     <button class="hamburger-button" onClick="toggleSidebar()">☰ Menu</button>
                 </nav>
-                <!-- <div> -->
+                <div id="div-form1">
                     <form id="form1" onSubmit="analyzetext()">
                         <div>
                             <textarea placeholder="Text to analyze." id="form1-text-area" name="form1-text-area"></textarea>
                         </div>
-                        <div>
+                        <div id="form1-error-div"></div>
+                        <div id="div-form1-buttons">
                             <button type="submit" id="form1-button">Analyze</button>
                         </div>
                     </form>
-                <!-- </div> -->
+                </div>
+                <div id="container-for-page-tabs" class="inactive-tab-content">
+                    <div id="page-tabs-buttons">
+                        <button class="tab-button" onClick="displayTabContent('page1', this, 'olivedrab')" id="defaultOpen">Scalar Graph</button>
+                        <button class="tab-button" onClick="displayTabContent('page2', this, 'peru')">Log Graph</button>
+                        <button class="tab-button" onClick="displayTabContent('page3', this, 'rosybrown')">Table</button>
+                    </div>
+                    <div id="page-tabs-content">
+                        <div class="tab-content" id="page1">
+                            <h2>This is page 1</h2>
+                        </div>
+            
+                        <div class="tab-content" id="page2">
+                            <h2>This is page 2</h2>
+                        </div>
+            
+                        <div class="tab-content" id="page3">
+                            <h2>This is page 3</h2>
+                        </div>
+                    </div>
+                </div>
+
+
                 <div id="my-chart"></div>
             </div> <!-- End Page Content ----------------------------------------------------------------------- -->
     
@@ -140,11 +107,29 @@
             function toggleSidebar() {
                 $('#sidebar').toggleClass('active');
             }
+            
+            function displayTabContent(tabName, element, color) {
+                var allTabContents = document.getElementsByClassName("tab-content");
+                for (var i = 0; i < allTabContents.length; i++) {
+                    allTabContents[i].classList.remove("active-tab-content");
+                    allTabContents[i].classList.add("inactive-tab-content");
+                }
+
+                var allTabButtons = document.getElementsByClassName("tab-button");
+                for (var i = 0; i < allTabButtons.length; i++) {
+                    allTabButtons[i].style.backgroundColor = "";
+                }
+                
+                element.classList.add("active-tab-button");
+                element.style.backgroundColor = color;
+
+                document.getElementById(tabName).classList.add("active-tab-content");
+            }
+
         </script>
 
         <!-- JavaScript, Custom, External -->
         <script src="home.js"></script>
-        <script src="file.js" ></script> <!-- THIS -->
 
         <!-- External Scripts -->
             <!-- Full JQuery (with AJAX) -->
