@@ -27,14 +27,14 @@ public class GreedyFloristTest {
     public void testRunGreedyFlorist2() {
         int k = 2;
         int[] costs = {2, 5, 6};
-        assertEquals(15, gf.runGreedyFlorist(k, costs));   
+        assertEquals(14, gf.runGreedyFlorist(k, costs));   
     }
     
     @Test
     public void testRunGreedyFlorist3() {
         int k = 3;
         int[] costs = {1, 3, 5, 7, 9};
-        assertEquals(29, gf.runGreedyFlorist(k, costs));   
+        assertEquals(27, gf.runGreedyFlorist(k, costs));   
     }
     
     @Test

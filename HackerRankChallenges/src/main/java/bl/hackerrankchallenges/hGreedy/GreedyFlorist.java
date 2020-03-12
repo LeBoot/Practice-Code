@@ -5,9 +5,6 @@
  */
 package bl.hackerrankchallenges.hGreedy;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-
 /**
  *
  * @author Boone
@@ -15,18 +12,12 @@ import java.math.RoundingMode;
 public class GreedyFlorist {
     
     public int runGreedyFlorist(int k, int[] costs) {
-        BigDecimal bdk = new BigDecimal(k);
-        BigDecimal bdl = new BigDecimal(costs.length);
-        BigDecimal bdMinForEach = bdl.divide(bdk, RoundingMode.FLOOR);
-        BigDecimal bdRemainder = bdl.subtract(bdMinForEach);
-        
-        int minForEach = bdMinForEach.intValue();
-        int remainder = bdRemainder.intValue();
         int totalCost = 0;
-        
+        int round = 1;
         for (int i = 0; i < costs.length; i++) {
-            for (int j = 0; j < minForEach + 1; j++) {
-                totalCost += (j + costs[i]);
+            totalCost += (round -1) + costs[i];
+            if (i + 1 == round * k ) {
+                round++;
             }
         }
         

@@ -5,6 +5,10 @@
  */
 package bl.hackerrankchallenges;
 
+import bl.hackerrankchallenges.hGreedy.GreedyFlorist;
+import bl.hackerrankchallenges.hSearch.Candy;
+import bl.hackerrankchallenges.hSearch.IceCream;
+import bl.hackerrankchallenges.hSearch.MinimumTime;
 import bl.hackerrankchallenges.hStringManipulation.SpecialString;
 
 
@@ -14,12 +18,14 @@ import bl.hackerrankchallenges.hStringManipulation.SpecialString;
  */
 public class App {
     
-    static SpecialString ss = new SpecialString();
+    static Candy candy = new Candy();
     
     public static void main(String[] args) {
-        String s1 = "abcd";
-        String s2 = "a";
-        ss.runSpecialString(s1, s2);
+        long m = 1;
+        long w = 2;
+        long p = 1;
+        long n = 60;
+        candy.runCandy(m, w, p, n);
         
     }  
     
