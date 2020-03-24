@@ -5,16 +5,34 @@
  */
 package bl.enigmapractice;
 
+import bl.enigmapractice.practice2.InvalidInputException;
+import bl.enigmapractice.practice2.Practice3;
+
 /**
  *
  * @author Boone
  */
 public class Enigma {
-    public static void main(String[] args) {
-        String input = "hello";
-        System.out.println("Output, from lowercase: " + scramble(input));
-        System.out.println("Output, from uppercase: " + scramble(input.toUpperCase()));
+    
+    public static void main(String[] args) throws InvalidInputException {
+        Practice3 aa = new Practice3();
         
+        int[] key = aa.generateNewKey();
+        String printKey = "";
+        int KeyLength = 0;
+        for (int n : key) {
+            printKey += n;
+            KeyLength++;
+        }
+        System.out.println("Key: " + printKey);
+        System.out.println("Key length: " + KeyLength);
+        
+        String input = "myPassWord!";
+        System.out.println("Input: " + input);
+        
+        String output = aa.encryptString(input, key);
+        System.out.println("Output: " + output);
+        System.out.println("Output length: " + output.length());
     }
     
     public static int scramble(String input) {
