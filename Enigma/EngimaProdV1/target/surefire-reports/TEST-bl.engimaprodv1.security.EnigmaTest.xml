@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="25" failures="0" name="bl.engimaprodv1.security.EnigmaTest" time="0.211" errors="0" skipped="0">
+<testsuite tests="35" failures="0" name="bl.engimaprodv1.security.EnigmaTest" time="0.26" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="11.0.5+10"/>
     <property name="sun.boot.library.path" value="C:\Program Files\AdoptOpenJDK\jdk-11.0.5.10-hotspot\bin"/>
-    <property name="maven.multiModuleProjectDirectory" value="C:\Repos\Direct-From-NetBeans\EngimaProdV1"/>
+    <property name="maven.multiModuleProjectDirectory" value="C:\Repos\Practice-Code\Enigma\EngimaProdV1"/>
     <property name="java.vm.vendor" value="AdoptOpenJDK"/>
     <property name="java.vendor.url" value="https://adoptopenjdk.net/"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -16,7 +16,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="test" value="bl.engimaprodv1.security.EnigmaTest"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="C:\Repos\Direct-From-NetBeans\EngimaProdV1"/>
+    <property name="user.dir" value="C:\Repos\Practice-Code\Enigma\EngimaProdV1"/>
     <property name="java.vm.compressedOopsMode" value="32-bit"/>
     <property name="java.runtime.version" value="11.0.5+10"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
@@ -63,29 +63,39 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testEncryptPassword_5" time="0.02"/>
-  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testEncryptPassword_14" time="0.037"/>
-  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testEncryptPassword_13" time="0.001"/>
-  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testEncryptPassword_9" time="0.001"/>
-  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testEncryptPassword_12" time="0"/>
-  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testDoesPasswordMatch_6" time="0.005"/>
-  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testDoesPasswordMatch_9" time="0.001"/>
-  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testDoesPasswordMatch_7" time="0.001"/>
-  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testEncryptPassword_1" time="0.001"/>
-  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testEncryptPassword_3" time="0"/>
-  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testDoesPasswordMatch_2" time="0.001"/>
-  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testDoesPasswordMatch_8" time="0.001"/>
+  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testAutogeneratePassword_9" time="0.077"/>
+  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testAutogeneratePassword_2" time="0"/>
+  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testAutogeneratePassword_8" time="0"/>
+  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testEncryptPassword_8" time="0.018"/>
+  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testEncryptPassword_14" time="0"/>
+  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testAutogeneratePassword_4" time="0"/>
+  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testDoesPasswordMatch_1" time="0.01"/>
+  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testDoesPasswordMatch_2" time="0"/>
+  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testEncryptPassword_9" time="0"/>
+  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testAutogeneratePassword_7" time="0"/>
+  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testEncryptPassword_7" time="0.004"/>
   <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testEncryptPassword_15" time="0.002"/>
-  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testEncryptPassword_8" time="0"/>
-  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testEncryptPassword_2" time="0.002"/>
-  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testDoesPasswordMatch_10" time="0"/>
-  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testEncryptPassword_4" time="0"/>
-  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testEncryptPassword_6" time="0"/>
-  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testEncryptPassword_7" time="0"/>
-  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testEncryptPassword_10" time="0.003"/>
-  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testDoesPasswordMatch_1" time="0.002"/>
-  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testDoesPasswordMatch_3" time="0.002"/>
-  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testDoesPasswordMatch_5" time="0.001"/>
-  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testEncryptPassword_11" time="0.129"/>
   <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testDoesPasswordMatch_4" time="0.001"/>
+  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testDoesPasswordMatch_6" time="0.006"/>
+  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testAutogeneratePassword_3" time="0"/>
+  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testDoesPasswordMatch_7" time="0.002"/>
+  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testEncryptPassword_12" time="0.001"/>
+  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testDoesPasswordMatch_8" time="0.001"/>
+  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testDoesPasswordMatch_3" time="0.001"/>
+  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testEncryptPassword_5" time="0"/>
+  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testEncryptPassword_4" time="0.001"/>
+  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testEncryptPassword_2" time="0.004"/>
+  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testDoesPasswordMatch_5" time="0"/>
+  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testAutogeneratePassword_6" time="0"/>
+  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testEncryptPassword_6" time="0"/>
+  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testEncryptPassword_10" time="0"/>
+  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testEncryptPassword_3" time="0.007"/>
+  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testEncryptPassword_13" time="0"/>
+  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testEncryptPassword_1" time="0"/>
+  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testEncryptPassword_11" time="0.113"/>
+  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testAutogeneratePassword_1" time="0"/>
+  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testAutogeneratePassword_10" time="0.009"/>
+  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testAutogeneratePassword_5" time="0"/>
+  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testDoesPasswordMatch_9" time="0.002"/>
+  <testcase classname="bl.engimaprodv1.security.EnigmaTest" name="bl.engimaprodv1.security.EnigmaTest.testDoesPasswordMatch_10" time="0.001"/>
 </testsuite>

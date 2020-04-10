@@ -21,6 +21,78 @@ public class EnigmaTest {
         return returnMe;
     }
 
+    
+    /*
+    AUTOGENERATE PASSWORD ======================================================
+    */
+    @Test //minimum length should be 4
+    public void testAutogeneratePassword_1() {
+        int input = -1;
+        assertEquals(4, enigma.autogeneratePassword(input).length());
+    }
+    
+    @Test //minimum length should be 4
+    public void testAutogeneratePassword_2() {
+        int input = 0;
+        assertEquals(4, enigma.autogeneratePassword(input).length());
+    }
+    
+    @Test //minimum length should be 4
+    public void testAutogeneratePassword_3() {
+        int input = 3;
+        assertEquals(4, enigma.autogeneratePassword(input).length());
+    }
+    
+    @Test //length should be input length
+    public void testAutogeneratePassword_4() {
+        int input = 4;
+        assertEquals(4, enigma.autogeneratePassword(input).length());
+    }
+    
+    @Test //length should be input length
+    public void testAutogeneratePassword_5() {
+        int input = 5;
+        assertEquals(input, enigma.autogeneratePassword(input).length());
+    }
+    
+    @Test //length should be input length
+    public void testAutogeneratePassword_6() {
+        int input = 10;
+        assertEquals(input, enigma.autogeneratePassword(input).length());
+    }
+    
+    @Test //length should be input length
+    public void testAutogeneratePassword_7() {
+        int input = 15;
+        assertEquals(input, enigma.autogeneratePassword(input).length());
+    }
+    
+    @Test //length should be input length
+    public void testAutogeneratePassword_8() {
+        int input = 20;
+        assertEquals(input, enigma.autogeneratePassword(input).length());
+    }
+    
+    @Test //for inputs > 20, length should be 10
+    public void testAutogeneratePassword_9() {
+        int input = 21;
+        assertEquals(10, enigma.autogeneratePassword(input).length());
+    }
+    
+    @Test //password should be encryptable
+    public void testAutogeneratePassword_10() {
+        for (int i = 0; i < 100; i++) {
+            String newPass = enigma.autogeneratePassword(i);
+            try {
+                enigma.encryptPassword(newPass);
+            } catch (InvalidPasswordException | InvalidKeyException ex) {
+                fail("Exception thrown unexpectedly: " + ex);
+            }
+        }
+        assertTrue(true);
+    }    
+    
+    
     /*
     ENCRYPT PASSWORD ===========================================================
     */
