@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="practice using chart.js">
+        <meta name="keywords" content="chart.js">
+        
+        <meta name="author" content="Ben Leboot">
+        <meta name="date.created" content="2020-04-12">
+        <meta name="date.modified" content="2020-04-12"> <!-- THIS -->
+               
+        <!-- Title for document -->
+        <title>Chart.JS Practice</title>
+
+        <!-- External Links -->
+            <!-- Latest compiled and minified CSS -->
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+            <!-- jQuery library -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            <!-- Latest compiled JavaScript -->
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+ 
+            <!-- CDN for chart.js -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+
+        <!-- CSS, Custom, External -->
+        <link href="file.css" rel="stylesheet" type="text/css" /> <!-- THIS -->
+        
+        <!-- CSS, Custom, Internal -->
+        <style>            
+            body {
+                background-color: antiquewhite; /*THIS*/
+            }
+
+            #noscript-div {
+                text-align: center;
+                color: rgb(153, 6, 6);
+                background-color: rgb(252, 153, 142);
+                padding: 5px;
+            }
+
+            header {
+                background-color: aquamarine; /*THIS*/
+            }
+
+            footer {
+                background-color: aqua; /*THIS*/
+                /*Keep footer at bottom of page*/
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+            }
+
+        </style>
+
+    </head> <!-- END HEAD ====================================================================================== -->
+    
+    <body>
+        <noscript><div id="noscript-div"><h2>Warning: This page does not function properly with JavaScript disabled.</h2></div></noscript>
+        <header>
+            Header
+        </header> <!-- END header -->
+        <section> 
+            <div style="text-align:center;margin:10px;">
+                <button type="button" onclick="buildChart()">Build Chart</button>
+            </div>
+            <div>
+                <canvas id="chart1" style="max-width:400px;max-height:400px;margin:0px auto 30px auto;"></canvas>
+                <canvas id="chart2" style="max-width:400px;max-height:400px;margin:0px auto 30px auto;"></canvas>
+            </div>
+        </section> <!-- END Section-Main-Body -->
+        <footer>
+            Footer
+        </footer> <!-- END footer -->
+
+        <!-- JavaScript, Custom, Internal -->
+        <script>
+            function buildChart() {
+                var ctx1 = $("#chart1");
+                var myChart1 = new Chart(ctx1,{
+                    type:'bar',
+                    data: {
+                        labels: ["Taco", "Bird", "Acre", "Yawl"],
+                        datasets: [{
+                            label: 'occurances',
+                            backgroundColor: 'red',
+                            data: [1, 2, 3, 4]
+                        }]
+                    },
+                    options: {
+                        legend: {display: false},
+                        title: {display: true, text: 'Scalar Bar Graph'},
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    min: 0,
+                                    stepSize: 1
+                                }
+                            }]
+                        }
+                        
+                    }
+                });
+
+                var ctx2 = $("#chart2");
+                var myChart2 = new Chart(ctx2,{
+                    type:'bar',
+                    data: {
+                        labels: ["Taco", "Bird", "Acre", "Yawl"],
+                        datasets: [{
+                            label: 'occurances',
+                            backgroundColor: 'red',
+                            data: [1, 1000, 100000, 100]
+                        }]
+                    },
+                    options: {
+                        legend: {display: false},
+                        title: {display: true, text: 'Logarithmic Bar Graph (In Progress)'},
+                        scales: {
+                            yAxes: [{
+                                type: 'logarithmic',
+                                ticks: {
+                                    min: 0
+                                }
+                            }]
+                        }
+                        
+                    }
+                });
+            }
+        </script>
+
+        <!-- JavaScript, Custom, External -->
+        <script src="file.js" ></script> <!-- THIS -->
+
+        <!-- External Scripts -->
+            <!-- Full JQuery (with AJAX) -->
+            <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+            <!-- Popper JS -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+            <!-- Bootstrap JS -->
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body> <!-- END BODY ====================================================================================== -->
+</html>
