@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Numbers</title>
+  </head>
+  <body>
+    <h1>Random Numbers</h1>
+  </body>
+  <script>
+    const numberArray = [];
+    const min = -10;
+    const max = 10;
+    for (let i = 0; i < 500; i++) {
+      const newRandomNum = Math.floor(Math.random() * ((max - min) + 1)) + min;
+      numberArray.push(newRandomNum);
+    }
+    numberArray.forEach(num => num > max || num < min ? console.log("Fail: " + num) : "");
+    console.log(numberArray);
+  </script>
+</html>
