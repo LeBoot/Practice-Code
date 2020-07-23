@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Components</title>
+  <script src="tooltip.js"></script>
+</head>
+<body>
+  <!-- Without Shadow DOM-->
+  <p><bl-tooltip1 text="This is custom text.">
+    Ben's Tooltip
+  </bl-tooltip1></p>
+  <p><bl-tooltip1>
+    Ben's Second Tooltip
+  </bl-tooltip1></p>
+
+
+  <!-- With SHADOW DOM-->
+  <!--
+  <template id="tooltip-template">
+    <slot>Default Slot Text</slot>
+    <span>(?)</span>
+  </template>
+  -->
+
+  <p><bl-tooltip2></bl-tooltip2></p>
+  <p><bl-tooltip2></bl-tooltip2></p>
+  
+</body>
+</html>
