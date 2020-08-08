@@ -41,7 +41,7 @@ function determineHighest(...families) {
    let winner;
    for (const f of families) {
       if (f.calcAverageTip() > max) {
-         max = f.calcAverageTip();
+         max = +f.calcAverageTip();
          winner = f;
       }
    }
@@ -64,7 +64,9 @@ const johnsBills = [124, 48, 268, 180, 42];
 const marksBills = [77, 375, 110, 45];
 
 const john = new Family("John", johnsTipCalc, johnsBills);
-const mark = new Family("Mark", marksTipCalc, marksBills);
+//const mark = new Family("Mark", marksTipCalc, marksBills);
+const mark = new Family("Mark", marksTipCalc);
+mark.addAllBills(marksBills);
 
 const winner = determineHighest(john, mark);
 const msg = `${winner.name} paid the highest average tip, which was \$${winner.calcAverageTip()}`;
